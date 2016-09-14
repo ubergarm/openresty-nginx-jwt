@@ -27,6 +27,6 @@ local jwt_obj = jwt:verify(os.getenv("JWT_SECRET"), token, claim_spec)
 if not jwt_obj["verified"] then
     ngx.status = ngx.HTTP_UNAUTHORIZED
     ngx.log(ngx.WARN, jwt_obj.reason);
-    ngx.say("{error: '" .. jwt_obj.reason .. "'}");
+    ngx.say("{error: \"" .. jwt_obj.reason .. "\"}");
     ngx.exit(ngx.HTTP_UNAUTHORIZED)
 end
