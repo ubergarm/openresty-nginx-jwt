@@ -3,14 +3,14 @@ local jwt = require "resty.jwt"
 local auth_header = ngx.var.http_Authorization
 if auth_header == nil then
     ngx.status = ngx.HTTP_UNAUTHORIZED
-    ngx.say("{error: 'missing Authorization header'}")
+    ngx.say("{error: \"missing Authorization header\"}")
     ngx.exit(ngx.HTTP_UNAUTHORIZED)
 end
 
 local _, _, token = string.find(auth_header, "Bearer%s+(.+)")
 if token == nil then
     ngx.status = ngx.HTTP_UNAUTHORIZED
-    ngx.say("{error: 'missing Bearer token'}")
+    ngx.say("{error: \"missing Bearer token\"}")
     ngx.exit(ngx.HTTP_UNAUTHORIZED)
 end
 
@@ -18,6 +18,10 @@ end
 -- https://github.com/SkyLothar/lua-resty-jwt#jwt-validators
 local validators = require "resty.jwt-validators"
 local claim_spec = {
+    -- validators.set_system_leeway(15), -- time in seconds
+    -- exp = validators.is_not_expired(),
+    -- iat = validators.is_not_before(),
+    -- iss = validators.opt_matches("^http[s]?://yourdomain.auth0.com/$"),
     sub = validators.opt_matches("^[0-9]+$"),
     name = validators.equals_any_of({ "John Doe", "Mallory", "Alice", "Bob" }),
 }
