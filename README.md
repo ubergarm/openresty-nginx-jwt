@@ -47,6 +47,8 @@ I originally tried to get [auth0/nginx-jwt](https://github.com/auth0/nginx-jwt) 
 
 If you're looking for something beyond just JWT auth, check out [kong](https://getkong.org/) for all your API middleware plugin needs!
 
+Also [Caddy](https://caddyserver.com/) might be faster for a simple project.
+
 ## TODO
 I'd love to get this running in an [Alpine Linux](https://alpinelinux.org/), but `openresty/openresty:alpine` doesn't come with LuaRocks. It should be possible with some work and would reduce the image size considerably.
 
