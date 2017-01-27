@@ -19,6 +19,7 @@ end
 -- finally, if still no JWT token, kick out an error and exit
 if token == nil then
     ngx.status = ngx.HTTP_UNAUTHORIZED
+    ngx.header.content_type = "application/json; charset=utf-8"
     ngx.say("{error: \"missing JWT token or Authorization header\"}")
     ngx.exit(ngx.HTTP_UNAUTHORIZED)
 end
@@ -40,6 +41,7 @@ local jwt_obj = jwt:verify(os.getenv("JWT_SECRET"), token, claim_spec)
 if not jwt_obj["verified"] then
     ngx.status = ngx.HTTP_UNAUTHORIZED
     ngx.log(ngx.WARN, jwt_obj.reason)
+    ngx.header.content_type = "application/json; charset=utf-8"
     ngx.say("{error: \"" .. jwt_obj.reason .. "\"}")
     ngx.exit(ngx.HTTP_UNAUTHORIZED)
 end
