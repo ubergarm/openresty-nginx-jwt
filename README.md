@@ -1,5 +1,7 @@
 openresty-nginx-jwt
 ===
+[![](https://images.microbadger.com/badges/image/ubergarm/openresty-nginx-jwt.svg)](https://microbadger.com/images/ubergarm/openresty-nginx-jwt) [![](https://images.microbadger.com/badges/version/ubergarm/openresty-nginx-jwt.svg)](https://microbadger.com/images/ubergarm/openresty-nginx-jwt) [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/ubergarm/openresty-nginx-jwt/blob/master/LICENSE)
+
 JWT Bearer Token authorization with `nginx`, `openresty`, and `lua-resty-jwt`.
 
 An easy way to setup JWT Bearer Token authorization for any API endpoint, reverse proxy service, or location block without having to touch your server-side code.
