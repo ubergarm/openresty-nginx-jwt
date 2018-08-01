@@ -49,9 +49,6 @@ If you're looking for something beyond just JWT auth, check out [kong](https://g
 
 Also [Caddy](https://caddyserver.com/) might be faster for a simple project.
 
-## TODO
-I'd love to get this running in an [Alpine Linux](https://alpinelinux.org/), but `openresty/openresty:alpine` doesn't come with LuaRocks. It should be possible with some work and would reduce the image size considerably.
-
 ## References
 * https://github.com/openresty/docker-openresty
 * https://github.com/SkyLothar/lua-resty-jwt
