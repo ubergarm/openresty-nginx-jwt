@@ -21,7 +21,7 @@ start: destroy build
 
 destroy:	## destroy docker container
 destroy:
-	docker rm -f openresty-nginx-jwt
+	docker rm -f openresty-nginx-jwt || true
 
 test:	## run tests
 test: start
