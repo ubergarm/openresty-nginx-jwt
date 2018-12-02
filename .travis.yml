@@ -1,8 +1,6 @@
 ---
+sudo: required
 
-language: python
-python:
-  - '3.6'
 services:
   - docker
 # Only execute travis in master or PR to master
