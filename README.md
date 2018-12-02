@@ -1,7 +1,6 @@
 openresty-nginx-jwt
 ===================
-
-[![](https://images.microbadger.com/badges/image/pando85/openresty-nginx-jwt.svg)](https://microbadger.com/images/pando85/openresty-nginx-jwt) [![](https://images.microbadger.com/badges/version/pando85/openresty-nginx-jwt.svg)](https://microbadger.com/images/pando85/openresty-nginx-jwt) [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/pando85/openresty-nginx-jwt/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/pando85/openresty-nginx-jwt.svg?branch=master)](https://travis-ci.org/pando85/openresty-nginx-jwt) [![](https://images.microbadger.com/badges/image/pando85/openresty-nginx-jwt.svg)](https://microbadger.com/images/pando85/openresty-nginx-jwt) [![](https://images.microbadger.com/badges/version/pando85/openresty-nginx-jwt.svg)](https://microbadger.com/images/pando85/openresty-nginx-jwt) [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/pando85/openresty-nginx-jwt/blob/master/LICENSE)
 
 JWT Bearer Token authorization with `nginx`, `openresty`, and `lua-resty-jwt`.
 
