@@ -1,0 +1,30 @@
+---
+
+language: python
+python:
+  - '3.6'
+services:
+  - docker
+# Only execute travis in master or PR to master
+branches:
+  only:
+  - master
+
+stages:
+  - name: "tests"
+  - name: dockerhub-build
+    if: branch = master AND type != pull_request
+
+jobs:
+  include:
+    - stage: "tests"
+      install:
+        - make build
+      script:
+        - make test
+    - stage: dockerhub-build
+      install: skip
+      script:
+        - "curl -H 'Content-Type: application/json' --data '{\"build\": true}' -X POST https://registry.hub.docker.com/u/$TRAVIS_REPO_SLUG/trigger/$DOCKERHUB_TOKEN/"
+      env:
+        - secure: "IklGwpcW1G/gVzATl1DSV1xjxLITv5tVg8jcrb7AA8gE2lDkmHzp2xyQhYxLLiylBRXVHrvO29tjZ/OikqCWHrn3+fsB9u1uSPZ/3eppIl52wf1D4g9l5s0uytmZYAJsQ0mo2FYwn09UGSwv803O9rAjlGc1QP2Ex4r2BebjetFHx+N1iy0h6BlSQ9AO9XH9Dkvs/awmgD4dafothlh/sUuh6QbBECQT/7b7sEl5G5TnXc6jZ2P3ArjCz5FW8Po67jNY2gioMYHjKV1DgwwysdJdnF0iEV73CiwqvWawvZ+mbvD6oa2GzmzmgbdjmkOa0QumqWDUxnghNZYc91oqEenBCqweBJ1fBEpOwb66Bq9A/ZvfsmAY9ltIwhAbp9lZvexFWi74Em3cDWD4HVMnV5AOqFUOkoQ47kiOy5u0HfxC5etMNqlOZBQsNEyysAKSdodKMsdy2WHmj823qFUjHHIo5R83sHYlRKcmJRSSMg/H/WTk6EDAXeCGtTxNgGsR7izdpfHPK85MdbCrQYJaEK///TrJgdWOzDmtscZ9dlPkw0qW/bHGIluiColyrVSApnWerGJBr5oUOiMW4e+fG0L2B6iZeqTyFNcPvc08smAgbJE4HlAqFQd0hTpIJGgOukMy8n2T4m6IiVMJhCVHPEobnMWgWt8LZOpJyeVLc+g="
