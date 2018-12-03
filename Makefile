@@ -14,8 +14,8 @@ start: destroy build
 	docker run --rm \
 	-d --name openresty-nginx-jwt \
 	-e JWT_SECRET=secret \
-	-v $(shell pwd)/nginx.conf:/nginx.conf \
-	-v $(shell pwd)/bearer.lua:/bearer.lua \
+	-v $(shell pwd)/nginx.conf:/etc/nginx/nginx.conf \
+	-v $(shell pwd)/bearer.lua:/etc/nginx/bearer.lua \
 	-p 8080:8080 \
 	pando85/openresty-nginx-jwt
 
