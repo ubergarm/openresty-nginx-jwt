@@ -16,8 +16,8 @@ Server:
 docker run --rm \
            -it \
            -e JWT_SECRET=secret \
-           -v $(pwd)/nginx.conf:/nginx.conf \
-           -v $(pwd)/bearer.lua:/bearer.lua \
+           -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf \
+           -v $(pwd)/bearer.lua:/etc/nginx/bearer.lua \
            -p 8080:8080 \
            pando85/openresty-nginx-jwt
 ```
