@@ -64,7 +64,7 @@ Also [Caddy](https://caddyserver.com/) might be faster for a simple project.
 ## References
 
 * https://github.com/openresty/docker-openresty
-* https://github.com/SkyLothar/lua-resty-jwt
+* https://github.com/cdbattags/lua-resty-jwt
 * https://github.com/svyatogor/resty-lua-jwt
 * https://getkong.org/
 * https://jwt.io/
